@@ -1,0 +1,21 @@
+<div>
+<h1>{{heading}}</h1>
+<form (submit)="onSubmit()" #formData="ngForm">
+  Github UserName <input type="text" name="name" [(ngModel)]="username" required minlength="2" #gitusername = "ngModel">
+  <span *ngIf="gitusername.errors" [ngStyle]="{'color':'red'}">UserName is Required</span>
+  <br>
+  <input type="submit" value="Calculate my Github Score" [disabled] = "formData.invalid">
+</form>
+<!-- <div *ngIf="!notExist"> -->
+<p>Your Score {{result2.public_repos + result2.followers}}</p>
+<h5  *ngIf="result2.public_repos + result2.followers < 20">Needs Work!</h5>
+      <h5  *ngIf="result2.public_repos + result2.followers >= 20 && result2.public_repos + result2.followers < 50">A decent start!</h5>
+      <h5 *ngIf="result2.public_repos + result2.followers >= 50 && result2.public_repos + result2.followers < 100">Doing good!</h5>
+      <h5  *ngIf="result2.public_repos + result2.followers >= 100 && result2.public_repos + result2.followers < 200">Great Job!</h5>
+      <h5  *ngIf="result2.public_repos + result2.followers >= 200">Github Elite!</h5>
+<!-- </div> -->
+    
+</div>
+ 
+<!-- {{result2 | json}}
+{{result2.public_repos}} -->
